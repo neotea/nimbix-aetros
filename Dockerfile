@@ -96,8 +96,8 @@ RUN sudo pip3 install pip --upgrade && sudo pip3 install python-dateutil --upgra
 VOLUME /tmp
 WORKDIR /tmp
 USER nimbix
-RUN sudo pip3 install pip --upgrade && sudo pip3 install aetros
-RUN sudo pip install pip --upgrade && sudo pip install aetros
+RUN sudo pip3 install pip --upgrade && sudo pip3 install aetros --upgrade
+RUN sudo pip install pip --upgrade && sudo pip install aetros --upgrade
 
 # Install Tensorflow for python and update h5py and scipy
 
