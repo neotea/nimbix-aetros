@@ -1,5 +1,8 @@
 FROM nvidia/cuda:8.0-cudnn6-devel
-MAINTAINER Nimbix, Inc. <support@nimbix.net>
+
+USER root
+# Set the locale
+RUN apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 
 # base OS
 ENV DEBIAN_FRONTEND noninteractive
@@ -18,9 +21,6 @@ RUN sed -ie 's/start on.*/start on filesystem/' /etc/init/ssh.conf
 
 
 
-USER root
-# Set the locale
-RUN apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 
 # Python dependencies and DL bibs
 RUN apt-get update && \
