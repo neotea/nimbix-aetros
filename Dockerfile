@@ -19,6 +19,7 @@ RUN sed -ie 's/start on.*/start on filesystem/' /etc/init/ssh.conf
 
 # Python dependencies and DL bibs
 USER root
+RUN apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8
 RUN apt-get update && \
     apt-get install --no-install-recommends -y --force-yes \
         git \
