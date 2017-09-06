@@ -17,9 +17,12 @@ RUN mkdir -m 0755 /data && chown nimbix:nimbix /data
 RUN sed -ie 's/start on.*/start on filesystem/' /etc/init/ssh.conf
 
 
-# Python dependencies and DL bibs
+
 USER root
-RUN apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8
+# Set the locale
+RUN apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+
+# Python dependencies and DL bibs
 RUN apt-get update && \
     apt-get install --no-install-recommends -y --force-yes \
         git \
