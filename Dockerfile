@@ -74,7 +74,6 @@ RUN apt-get update && \
 	python-protobuf \
 	python-scipy \
 	python3-scipy \
-
 	python-skimage \
 	python-sklearn \
         && apt-get build-dep -y --force-yes python-matplotlib \
